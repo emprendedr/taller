@@ -195,65 +195,70 @@
       background: var(--primary-color);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 16px 20px;
+    /* Estilos para el nuevo botón de registro */
+    .info-card {
+      background: rgba(0, 224, 255, 0.1);
       border-radius: 10px;
-      border: none;
-      font-size: 1rem;
-      font-family: 'Poppins', sans-serif;
-      background: rgba(255, 255, 255, 0.9);
-      transition: var(--transition);
+      padding: 15px;
+      margin-bottom: 25px;
+      text-align: center;
+      border-left: 4px solid var(--primary-color);
     }
 
-    .form-group input:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.5);
-      background: white;
+    .cta-button-container {
+      text-align: center;
+      margin: 30px 0;
     }
 
-    .form-group input::placeholder {
-      color: #666;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 18px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      background: linear-gradient(45deg, var(--primary-color), #00b4d8);
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(45deg, #00e0ff, #00b4d8);
       color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: var(--transition);
+      padding: 20px 40px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.4);
+      border: 2px solid transparent;
       font-family: 'Montserrat', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(45deg, #ffd700, #ffc300);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+      border-color: #fff;
+    }
+
+    .cta-button:active {
+      transform: translateY(-2px);
+    }
+
+    .button-subtext {
       margin-top: 10px;
-    }
-
-    .submit-btn:hover {
-      background: linear-gradient(45deg, var(--secondary-color), #ffc300);
-      transform: translateY(-3px);
-      box-shadow: 0 7px 15px rgba(255, 215, 0, 0.4);
-    }
-
-    .submit-btn:active {
-      transform: translateY(0);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .guarantee {
-      text-align: center;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
       margin-top: 20px;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+    }
+
+    .guarantee p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     footer {
@@ -332,6 +337,11 @@
         flex-direction: column;
         align-items: center;
       }
+      
+      .cta-button {
+        padding: 18px 30px;
+        font-size: 1.2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -347,9 +357,10 @@
         padding: 20px;
       }
       
-      .submit-btn {
-        padding: 15px;
+      .cta-button {
+        padding: 16px 24px;
         font-size: 1.1rem;
+        width: 100%;
       }
     }
   </style>
@@ -440,27 +451,26 @@
     <section class="form-section">
       <h3>👇 Regístrate Ahora - Cupos Limitados</h3>
       
-      <form id="registrationForm" action="#" method="post">
-        <div class="form-group">
-          <input type="text" name="nombre" placeholder="Nombre completo *" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Correo electrónico *" required>
-        </div>
-        
-        <div class="form-group">
-          <input type="tel" name="telefono" placeholder="WhatsApp / Teléfono *" required>
-        </div>
-        
-        <button type="submit" class="submit-btn">
-          <i class="fas fa-rocket"></i> ASEGURAR MI LUGAR GRATIS
-        </button>
-        
-        <p class="guarantee">
-          <i class="fas fa-lock"></i> Tus datos están protegidos. No compartimos tu información.
+      <div class="info-card">
+        <p><i class="fas fa-shield-alt"></i> <strong>Registro Seguro</strong><br>
+        Tu información está protegida por Google Forms.</p>
+      </div>
+      
+      <div class="cta-button-container">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVPSzPRu7fhQ0x69xaZbo9s4mMLlPPWBRlLz2rh4ns1gLs4w/viewform?usp=send_form" 
+           target="_blank" 
+           class="cta-button">
+            <i class="fas fa-user-plus"></i> REGÍSTRATE AQUÍ GRATIS
+        </a>
+        <p class="button-subtext">
+          <i class="fas fa-external-link-alt"></i> Serás redirigido al formulario oficial de registro
         </p>
-      </form>
+      </div>
+      
+      <div class="guarantee">
+        <p><i class="fas fa-clock"></i> <strong>Solo toma 1 minuto</strong></p>
+        <p><i class="fas fa-ticket-alt"></i> Cupos limitados - Reserva tu lugar ahora</p>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -498,52 +508,6 @@
   </div>
 
   <script>
-    // Validación del formulario
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Obtener valores del formulario
-      const nombre = this.nombre.value.trim();
-      const email = this.email.value.trim();
-      const telefono = this.telefono.value.trim();
-      
-      // Validación básica
-      if (!nombre || !email || !telefono) {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return;
-      }
-      
-      if (!isValidEmail(email)) {
-        alert('Por favor, ingrese un correo electrónico válido.');
-        return;
-      }
-      
-      // Simular envío del formulario
-      const submitBtn = this.querySelector('.submit-btn');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESANDO...';
-      submitBtn.disabled = true;
-      
-      // Simular tiempo de procesamiento
-      setTimeout(() => {
-        // Aquí normalmente enviarías los datos a un servidor
-        alert(`¡Registro exitoso, ${nombre}! Te hemos enviado la confirmación y los detalles de acceso a ${email}.`);
-        
-        // Restaurar botón
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Limpiar formulario
-        this.reset();
-      }, 2000);
-    });
-    
-    function isValidEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-    
     // Efecto de scroll suave para enlaces (si se agregaran)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -560,6 +524,31 @@
           });
         }
       });
+    });
+    
+    // Contador de tiempo para crear urgencia (opcional)
+    function updateCountdown() {
+      const countdownElement = document.querySelector('.guarantee p:last-child');
+      if (countdownElement && countdownElement.innerHTML.includes('Cupos limitados')) {
+        // Podrías agregar aquí un contador de tiempo real si lo deseas
+      }
+    }
+    
+    // Inicializar cuando el documento esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+      
+      // Añadir animación sutil al botón principal
+      const ctaButton = document.querySelector('.cta-button');
+      if (ctaButton) {
+        ctaButton.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
+        
+        ctaButton.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      }
     });
   </script>
 </body>
