@@ -1,1 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Taller gratuito de Inteligencia Artificial y Automatización. Aprende a usar IA, redes sociales y automatiza ingresos con tu proyecto o marca personal.">
+  <meta name="keywords" content="IA, Inteligencia Artificial, Automatización, Taller Gratuito, Redes Sociales, Marketing Digital">
+  <meta name="author" content="Edwar Hernandez">
+  
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="Taller Gratuito IA & Automatización">
+  <meta property="og:description" content="Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal">
+  <meta property="og:type" content="website">
+  
+  <title>Taller Gratuito IA & Automatización | Aprende y Automatiza</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/artificial-intelligence.png">
+  
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    :root {
+      --primary-color: #00e0ff;
+      --secondary-color: #ffd700;
+      --dark-bg: #0f2027;
+      --medium-bg: #203a43;
+      --light-bg: #2c5364;
+      --text-color: #ffffff;
+      --form-bg: rgba(255, 255, 255, 0.1);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg), var(--medium-bg), var(--light-bg));
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .cta-badge {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .video-section {
+      margin: 40px auto;
+      max-width: 900px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Relación 16:9 */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background-color: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--primary-color);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .info-icon {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin-top: 5px;
+    }
+
+    .form-section {
+      background: var(--form-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-section h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .form-section h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      background: rgba(255, 255, 255, 0.9);
+      transition: var(--transition);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.5);
+      background: white;
+    }
+
+    .form-group input::placeholder {
+      color: #666;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: linear-gradient(45deg, var(--primary-color), #00b4d8);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(45deg, var(--secondary-color), #ffc300);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .guarantee {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .host-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .host-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+
+    .contact-icon {
+      color: var(--primary-color);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .form-section {
+        padding: 25px;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+      
+      .form-section {
+        padding: 20px;
+      }
+      
+      .submit-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="fas fa-robot"></i>
+      </div>
+      <h1>🚀 Taller GRATUITO de IA & Automatización</h1>
+      <h2>Aprende a usar <span class="highlight">Inteligencia Artificial, Redes Sociales</span>  
+        y automatiza ingresos con tu proyecto o marca personal</h2>
+      
+      <div class="cta-badge">
+        <i class="fas fa-gift"></i> Valor real: +$800 — HOY GRATIS
+      </div>
+    </header>
+
+    <!-- Sección de Video -->
+    <section class="video-section">
+      <div class="video-container">
+        <!-- Reemplaza TU_VIDEO_ID con el ID de tu video de YouTube -->
+        <iframe 
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&autoplay=0" 
+          title="Taller de IA y Automatización"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Sección de Información -->
+    <section class="info-section">
+      <p>💡 <strong>Taller 100% práctico</strong> donde aprenderás a implementar soluciones de IA y automatización en tu negocio o proyecto personal.</p>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div>
+            <h4>Herramientas de IA</h4>
+            <p>Descubre las mejores herramientas de IA para crear contenido, automatizar tareas y optimizar procesos.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div>
+            <h4>Automatización de Ingresos</h4>
+            <p>Aprende a crear sistemas que generen ingresos automáticos con IA y marketing digital.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div>
+            <h4>Redes Sociales Automatizadas</h4>
+            <p>Configura sistemas para gestionar y hacer crecer tus redes sociales con mínima intervención.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div>
+            <h4>Modalidad Híbrida</h4>
+            <p>Participa en vivo via Zoom o asiste presencialmente en <strong>Arcadia, CA</strong>.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 25px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+        <p style="color: var(--secondary-color); font-weight: 600;">
+          <i class="fas fa-exclamation-triangle"></i> ¡ATENCIÓN! Registro obligatorio. La clave de acceso se envía únicamente al completar el formulario.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección de Formulario -->
+    <section class="form-section">
+      <h3>👇 Regístrate Ahora - Cupos Limitados</h3>
+      
+      <form id="registrationForm" action="#" method="post">
+        <div class="form-group">
+          <input type="text" name="nombre" placeholder="Nombre completo *" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Correo electrónico *" required>
+        </div>
+        
+        <div class="form-group">
+          <input type="tel" name="telefono" placeholder="WhatsApp / Teléfono *" required>
+        </div>
+        
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-rocket"></i> ASEGURAR MI LUGAR GRATIS
+        </button>
+        
+        <p class="guarantee">
+          <i class="fas fa-lock"></i> Tus datos están protegidos. No compartimos tu información.
+        </p>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="host-info">
+        <div class="host-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>Host: Edwar Hernandez</h3>
+        <p>Especialista en IA y Automatización con más de 5 años de experiencia</p>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone contact-icon"></i>
+          <span>1323-285-0508</span>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>info@taller-ia.com</span>
+        </div>
+        
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <span>Arcadia, California</span>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2023 Taller Gratuito IA & Automatización. Todos los derechos reservados.</p>
+        <p>Este es un taller educativo sin costo de inscripción.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Validación del formulario
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Obtener valores del formulario
+      const nombre = this.nombre.value.trim();
+      const email = this.email.value.trim();
+      const telefono = this.telefono.value.trim();
+      
+      // Validación básica
+      if (!nombre || !email || !telefono) {
+        alert('Por favor, complete todos los campos obligatorios.');
+        return;
+      }
+      
+      if (!isValidEmail(email)) {
+        alert('Por favor, ingrese un correo electrónico válido.');
+        return;
+      }
+      
+      // Simular envío del formulario
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.innerHTML;
+      
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESANDO...';
+      submitBtn.disabled = true;
+      
+      // Simular tiempo de procesamiento
+      setTimeout(() => {
+        // Aquí normalmente enviarías los datos a un servidor
+        alert(`¡Registro exitoso, ${nombre}! Te hemos enviado la confirmación y los detalles de acceso a ${email}.`);
+        
+        // Restaurar botón
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Limpiar formulario
+        this.reset();
+      }, 2000);
+    });
+    
+    function isValidEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+    
+    // Efecto de scroll suave para enlaces (si se agregaran)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
