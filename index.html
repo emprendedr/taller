@@ -11,6 +11,7 @@
   <meta property="og:title" content="Taller Gratuito IA & Automatización">
   <meta property="og:description" content="Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://img.youtube.com/vi/NwKfwj6G8rA/maxresdefault.jpg">
   
   <title>Taller Gratuito IA & Automatización | Aprende y Automatiza</title>
   
@@ -69,6 +70,13 @@
       font-size: 2.5rem;
       margin-bottom: 10px;
       color: var(--primary-color);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
 
     h1 {
@@ -114,6 +122,7 @@
     .video-section {
       margin: 40px auto;
       max-width: 900px;
+      position: relative;
     }
 
     .video-container {
@@ -124,15 +133,111 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       background-color: #000;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    .video-container iframe {
+    .video-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://img.youtube.com/vi/NwKfwj6G8rA/maxresdefault.jpg');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .video-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease;
+    }
+
+    .video-thumbnail:hover::before {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .video-thumbnail:hover .play-button {
+      transform: scale(1.1);
+      background: rgba(255, 215, 0, 0.9);
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 224, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+      animation: pulse-play 2s infinite;
+    }
+
+    @keyframes pulse-play {
+      0% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(0, 224, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0); }
+    }
+
+    .video-thumbnail .play-text {
+      position: absolute;
+      bottom: 30px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      z-index: 2;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 15px;
+      border-radius: 20px;
+    }
+
+    #videoFrame {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border: none;
+      display: none;
+    }
+
+    .video-message {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 224, 255, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid var(--primary-color);
+      font-size: 0.95rem;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .info-section {
@@ -143,6 +248,12 @@
       max-width: 900px;
       box-shadow: var(--shadow);
       border-left: 5px solid var(--primary-color);
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .info-grid {
@@ -156,6 +267,11 @@
       display: flex;
       align-items: flex-start;
       gap: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
     }
 
     .info-icon {
@@ -173,6 +289,7 @@
       margin: 50px auto;
       box-shadow: var(--shadow);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: slideUp 1.2s ease;
     }
 
     .form-section h3 {
@@ -203,11 +320,13 @@
       margin-bottom: 25px;
       text-align: center;
       border-left: 4px solid var(--primary-color);
+      animation: fadeIn 1.5s ease;
     }
 
     .cta-button-container {
       text-align: center;
       margin: 30px 0;
+      animation: fadeIn 1.8s ease;
     }
 
     .cta-button {
@@ -230,7 +349,7 @@
 
     .cta-button:hover {
       background: linear-gradient(45deg, #ffd700, #ffc300);
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
       box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
       border-color: #fff;
     }
@@ -251,6 +370,7 @@
       padding: 20px;
       margin-top: 20px;
       text-align: center;
+      animation: fadeIn 2s ease;
     }
 
     .guarantee p {
@@ -266,6 +386,7 @@
       margin-top: 60px;
       padding-top: 30px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 2.2s ease;
     }
 
     .host-info {
@@ -286,6 +407,7 @@
       justify-content: center;
       font-size: 2.5rem;
       margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite 1s;
     }
 
     .contact-info {
@@ -303,6 +425,12 @@
       background: rgba(255, 255, 255, 0.05);
       padding: 10px 20px;
       border-radius: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .contact-icon {
@@ -342,6 +470,17 @@
         padding: 18px 30px;
         font-size: 1.2rem;
       }
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+      
+      .video-thumbnail .play-text {
+        font-size: 1rem;
+        bottom: 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -361,6 +500,12 @@
         padding: 16px 24px;
         font-size: 1.1rem;
         width: 100%;
+      }
+      
+      .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
       }
     }
   </style>
@@ -384,13 +529,28 @@
     <!-- Sección de Video -->
     <section class="video-section">
       <div class="video-container">
-        <!-- Reemplaza TU_VIDEO_ID con el ID de tu video de YouTube -->
+        <div class="video-thumbnail" id="videoThumbnail">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+          <div class="play-text">Haz clic para ver el video</div>
+        </div>
+        
+        <!-- Iframe del video con protección -->
         <iframe 
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1&autoplay=0" 
+          id="videoFrame"
+          src=""
           title="Taller de IA y Automatización"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
+          allowfullscreen
+          frameborder="0"
+          modestbranding="1"
+          rel="0">
         </iframe>
+      </div>
+      
+      <div class="video-message" id="videoMessage">
+        <i class="fas fa-info-circle"></i> Después de ver el video completo, serás redirigido automáticamente al formulario de registro.
       </div>
     </section>
 
@@ -448,7 +608,7 @@
     </section>
 
     <!-- Sección de Formulario -->
-    <section class="form-section">
+    <section class="form-section" id="registrationSection">
       <h3>👇 Regístrate Ahora - Cupos Limitados</h3>
       
       <div class="info-card">
@@ -459,7 +619,8 @@
       <div class="cta-button-container">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVPSzPRu7fhQ0x69xaZbo9s4mMLlPPWBRlLz2rh4ns1gLs4w/viewform?usp=send_form" 
            target="_blank" 
-           class="cta-button">
+           class="cta-button"
+           id="registrationButton">
             <i class="fas fa-user-plus"></i> REGÍSTRATE AQUÍ GRATIS
         </a>
         <p class="button-subtext">
@@ -491,7 +652,7 @@
         
         <div class="contact-item">
           <i class="fas fa-envelope contact-icon"></i>
-          <span>info@taller-ia.com</span>
+          <span>jobshndez@gmail.com</span>
         </div>
         
         <div class="contact-item">
@@ -508,7 +669,99 @@
   </div>
 
   <script>
-    // Efecto de scroll suave para enlaces (si se agregaran)
+    // Variables para control del video
+    let videoStarted = false;
+    let videoEnded = false;
+    const videoId = 'NwKfwj6G8rA';
+    
+    // Elementos del DOM
+    const videoThumbnail = document.getElementById('videoThumbnail');
+    const videoFrame = document.getElementById('videoFrame');
+    const videoMessage = document.getElementById('videoMessage');
+    const registrationButton = document.getElementById('registrationButton');
+    const registrationSection = document.getElementById('registrationSection');
+    
+    // Configurar URL del video embebido (sin redirección a YouTube)
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1&controls=1&showinfo=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
+    
+    // Cargar la API de YouTube
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    // Variable para el reproductor de YouTube
+    let player;
+    
+    // Esta función se llama cuando la API de YouTube está lista
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('videoFrame', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+    
+    // Cuando el reproductor está listo
+    function onPlayerReady(event) {
+      console.log('Reproductor de YouTube listo');
+    }
+    
+    // Controlar los cambios de estado del video
+    function onPlayerStateChange(event) {
+      // Cuando el video comienza a reproducirse
+      if (event.data === YT.PlayerState.PLAYING && !videoStarted) {
+        videoStarted = true;
+        videoMessage.innerHTML = '<i class="fas fa-play-circle"></i> El video se está reproduciendo. Al finalizar, serás redirigido al formulario de registro.';
+        videoMessage.style.background = 'rgba(0, 224, 255, 0.15)';
+      }
+      
+      // Cuando el video termina
+      if (event.data === YT.PlayerState.ENDED && !videoEnded) {
+        videoEnded = true;
+        videoMessage.innerHTML = '<i class="fas fa-check-circle"></i> ¡Video completado! Redirigiendo al formulario de registro...';
+        videoMessage.style.background = 'rgba(255, 215, 0, 0.15)';
+        
+        // Resaltar la sección de registro
+        registrationSection.style.animation = 'pulse 1.5s ease 3';
+        registrationSection.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.5)';
+        
+        // Desplazarse suavemente al botón de registro
+        setTimeout(() => {
+          registrationSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1000);
+        
+        // Simular clic automático en el botón de registro después de 3 segundos
+        setTimeout(() => {
+          videoMessage.innerHTML = '<i class="fas fa-external-link-alt"></i> Redirigiendo al formulario de registro...';
+          
+          // Abrir el formulario en una nueva pestaña
+          window.open(registrationButton.href, '_blank');
+          
+          // También resaltar aún más el botón
+          registrationButton.style.animation = 'pulse 0.5s ease infinite';
+          registrationButton.style.boxShadow = '0 0 25px rgba(255, 215, 0, 0.7)';
+        }, 3000);
+      }
+    }
+    
+    // Cuando se hace clic en el thumbnail
+    videoThumbnail.addEventListener('click', function() {
+      // Ocultar el thumbnail
+      videoThumbnail.style.display = 'none';
+      
+      // Mostrar el iframe
+      videoFrame.style.display = 'block';
+      
+      // Establecer la fuente del video (protegido)
+      videoFrame.src = embedUrl;
+      
+      // Actualizar el mensaje
+      videoMessage.innerHTML = '<i class="fas fa-play-circle"></i> El video se está cargando. Por favor, espera...';
+    });
+    
+    // Efecto de scroll suave para enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -526,7 +779,7 @@
       });
     });
     
-    // Contador de tiempo para crear urgencia (opcional)
+    // Contador de tiempo para crear urgencia
     function updateCountdown() {
       const countdownElement = document.querySelector('.guarantee p:last-child');
       if (countdownElement && countdownElement.innerHTML.includes('Cupos limitados')) {
